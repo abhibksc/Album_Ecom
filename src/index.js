@@ -1,15 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import { ContextProvider } from './Components/ContextAPI.js/Context';
+import { RouterProvider } from 'react-router-dom';
+
+
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { sendToVercelAnalytics } from './vitals';
+import AppRouter from '../AppRouter';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-reportWebVitals(sendToVercelAnalytics);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ContextProvider><RouterProvider router={AppRouter}/></ContextProvider>);
